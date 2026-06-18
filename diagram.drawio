@@ -1,0 +1,178 @@
+<mxfile host="65bd71144e">
+    <diagram id="chat-demo-arch" name="Chat-Demo 架构图">
+        <mxGraphModel dx="1200" dy="800" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="900" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                
+                <!-- 标题 -->
+                <mxCell id="title" value="Chat-Demo 架构图" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontSize=24;fontColor=#202124;sketch=1;" parent="1" vertex="1">
+                    <mxGeometry x="500" y="20" width="400" height="40" as="geometry"/>
+                </mxCell>
+
+                <!-- ========== 客户端区域 ========== -->
+                <mxCell id="client-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;strokeWidth=2;fillColor=#C6DAFC;strokeColor=#1A73E8;opacity=50;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="80" width="280" height="340" as="geometry"/>
+                </mxCell>
+                <mxCell id="client-label" value="客户端" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontSize=16;fontColor=#0D47A1;sketch=1;" parent="1" vertex="1">
+                    <mxGeometry x="50" y="85" width="100" height="30" as="geometry"/>
+                </mxCell>
+                
+                <!-- App.tsx -->
+                <mxCell id="app" value="App.tsx&#xa;状态管理" style="rounded=0;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;strokeWidth=2;fontSize=12;fontStyle=1;fillColor=#A8C7FA;strokeColor=#1A73E8;fontColor=#0D47A1;" parent="1" vertex="1">
+                    <mxGeometry x="60" y="130" width="110" height="60" as="geometry"/>
+                </mxCell>
+                
+                <!-- 聊天窗口 -->
+                <mxCell id="chat-window" value="聊天窗口" style="rounded=0;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;strokeWidth=2;fontSize=12;fontStyle=1;fillColor=#A8C7FA;strokeColor=#1A73E8;fontColor=#0D47A1;" parent="1" vertex="1">
+                    <mxGeometry x="190" y="130" width="110" height="60" as="geometry"/>
+                </mxCell>
+                
+                <!-- 对话列表 -->
+                <mxCell id="chat-list" value="对话列表" style="rounded=0;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;strokeWidth=2;fontSize=12;fontStyle=1;fillColor=#A8C7FA;strokeColor=#1A73E8;fontColor=#0D47A1;" parent="1" vertex="1">
+                    <mxGeometry x="60" y="220" width="110" height="60" as="geometry"/>
+                </mxCell>
+                
+                <!-- WebSocket Hook -->
+                <mxCell id="ws-hook" value="WebSocket&#xa;Hook" style="rounded=0;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;strokeWidth=2;fontSize=12;fontStyle=1;fillColor=#A8C7FA;strokeColor=#1A73E8;fontColor=#0D47A1;" parent="1" vertex="1">
+                    <mxGeometry x="190" y="220" width="110" height="60" as="geometry"/>
+                </mxCell>
+
+                <!-- ========== 服务端区域 ========== -->
+                <mxCell id="server-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;strokeWidth=2;fillColor=#F1F3F4;strokeColor=#5F6368;opacity=50;" parent="1" vertex="1">
+                    <mxGeometry x="380" y="80" width="500" height="500" as="geometry"/>
+                </mxCell>
+                <mxCell id="server-label" value="服务端" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontSize=16;fontColor=#5F6368;sketch=1;" parent="1" vertex="1">
+                    <mxGeometry x="390" y="85" width="100" height="30" as="geometry"/>
+                </mxCell>
+
+                <!-- REST API -->
+                <mxCell id="rest-api" value="REST API&#xa;/api/chats/*" style="rounded=0;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;strokeWidth=2;fontSize=12;fontStyle=1;fillColor=#DADCE0;strokeColor=#5F6368;fontColor=#202124;" parent="1" vertex="1">
+                    <mxGeometry x="400" y="130" width="120" height="60" as="geometry"/>
+                </mxCell>
+                
+                <!-- WebSocket 服务器 -->
+                <mxCell id="ws-server" value="WebSocket&#xa;服务器" style="rounded=0;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;strokeWidth=2;fontSize=12;fontStyle=1;fillColor=#DADCE0;strokeColor=#5F6368;fontColor=#202124;" parent="1" vertex="1">
+                    <mxGeometry x="550" y="130" width="120" height="60" as="geometry"/>
+                </mxCell>
+                
+                <!-- 对话存储 -->
+                <mxCell id="chat-store" value="对话存储&#xa;(内存)" style="rounded=0;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;strokeWidth=2;fontSize=12;fontStyle=1;fillColor=#FEEFC3;strokeColor=#E37400;fontColor=#5D4200;" parent="1" vertex="1">
+                    <mxGeometry x="700" y="130" width="120" height="60" as="geometry"/>
+                </mxCell>
+
+                <!-- 会话管理器 -->
+                <mxCell id="session-mgr" value="会话管理器" style="rounded=0;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;strokeWidth=2;fontSize=12;fontStyle=1;fillColor=#DADCE0;strokeColor=#5F6368;fontColor=#202124;" parent="1" vertex="1">
+                    <mxGeometry x="470" y="250" width="130" height="60" as="geometry"/>
+                </mxCell>
+
+                <!-- AI 客户端 -->
+                <mxCell id="ai-client" value="AI 客户端&#xa;SDK 封装" style="rounded=0;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;strokeWidth=2;fontSize=12;fontStyle=1;fillColor=#CEEAD6;strokeColor=#188038;fontColor=#0B5323;" parent="1" vertex="1">
+                    <mxGeometry x="640" y="250" width="130" height="60" as="geometry"/>
+                </mxCell>
+
+                <!-- ========== SDK 区域 ========== -->
+                <mxCell id="sdk-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;strokeWidth=2;fillColor=#CEEAD6;strokeColor=#188038;opacity=50;" parent="1" vertex="1">
+                    <mxGeometry x="380" y="430" width="500" height="140" as="geometry"/>
+                </mxCell>
+                <mxCell id="sdk-label" value="@tencent-ai/agent-sdk" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontSize=14;fontColor=#0B5323;sketch=1;" parent="1" vertex="1">
+                    <mxGeometry x="390" y="435" width="200" height="30" as="geometry"/>
+                </mxCell>
+
+                <!-- query() -->
+                <mxCell id="query" value="query()&#xa;异步迭代器" style="rounded=0;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;strokeWidth=2;fontSize=12;fontStyle=1;fillColor=#A8DAB5;strokeColor=#188038;fontColor=#0B5323;" parent="1" vertex="1">
+                    <mxGeometry x="400" y="480" width="120" height="60" as="geometry"/>
+                </mxCell>
+
+                <!-- 工具集 -->
+                <mxCell id="tools" value="工具集&#xa;Bash, Read, Write, Edit, Glob, Grep, WebSearch..." style="rounded=0;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;strokeWidth=2;fontSize=11;fontStyle=1;fillColor=#A8DAB5;strokeColor=#188038;fontColor=#0B5323;" parent="1" vertex="1">
+                    <mxGeometry x="550" y="480" width="310" height="60" as="geometry"/>
+                </mxCell>
+
+                <!-- ========== 外部服务 ========== -->
+                <mxCell id="codebuddy" value="CodeBuddy&#xa;API 接口" style="rounded=0;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;strokeWidth=2;fontSize=12;fontStyle=1;fillColor=#BDC1C6;strokeColor=#5F6368;fontColor=#202124;" parent="1" vertex="1">
+                    <mxGeometry x="970" y="280" width="130" height="70" as="geometry"/>
+                </mxCell>
+
+                <!-- ========== 连接线 ========== -->
+                <!-- 客户端 -> REST API (HTTP) -->
+                <mxCell id="edge1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;sketch=1;curveFitting=1;jiggle=2;html=1;strokeWidth=2;strokeColor=#1A73E8;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="chat-window" target="rest-api" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge1-label" value="HTTP" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontSize=10;fontColor=#1A73E8;" parent="1" vertex="1">
+                    <mxGeometry x="330" y="140" width="50" height="20" as="geometry"/>
+                </mxCell>
+
+                <!-- 客户端 <-> 会话管理器 (WebSocket) -->
+                <mxCell id="edge2" style="edgeStyle=orthogonalEdgeStyle;rounded=1;sketch=1;curveFitting=1;jiggle=2;html=1;strokeWidth=2;strokeColor=#9B51E0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;startArrow=classic;endArrow=classic;" parent="1" source="ws-hook" target="session-mgr" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge2-label" value="WebSocket" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontSize=10;fontColor=#9B51E0;" parent="1" vertex="1">
+                    <mxGeometry x="330" y="260" width="70" height="20" as="geometry"/>
+                </mxCell>
+
+                <!-- 会话管理器 -> AI 客户端 -->
+                <mxCell id="edge3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;sketch=1;curveFitting=1;jiggle=2;html=1;strokeWidth=2;strokeColor=#5F6368;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="session-mgr" target="ai-client" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+
+                <!-- AI 客户端 -> SDK -->
+                <mxCell id="edge4" style="edgeStyle=orthogonalEdgeStyle;rounded=1;sketch=1;curveFitting=1;jiggle=2;html=1;strokeWidth=2;strokeColor=#188038;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="ai-client" target="query" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="460" y="480" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="705" y="380"/>
+                            <mxPoint x="460" y="380"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+
+                <!-- SDK -> CodeBuddy -->
+                <mxCell id="edge5" style="edgeStyle=orthogonalEdgeStyle;rounded=1;sketch=1;curveFitting=1;jiggle=2;html=1;strokeWidth=2;strokeColor=#5F6368;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=1;entryDx=0;entryDy=0;" parent="1" source="tools" target="codebuddy" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="920" y="510"/>
+                            <mxPoint x="920" y="350"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="edge5-label" value="REST" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontSize=10;fontColor=#5F6368;" parent="1" vertex="1">
+                    <mxGeometry x="925" y="400" width="40" height="20" as="geometry"/>
+                </mxCell>
+
+                <!-- 图例 -->
+                <mxCell id="legend-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;strokeWidth=1;fillColor=#F1F3F4;strokeColor=#DADCE0;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="480" width="280" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend-title" value="图例" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontSize=12;fontColor=#202124;" parent="1" vertex="1">
+                    <mxGeometry x="50" y="485" width="40" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend1" value="" style="rounded=0;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;strokeWidth=1;fillColor=#A8C7FA;strokeColor=#1A73E8;" parent="1" vertex="1">
+                    <mxGeometry x="55" y="515" width="20" height="15" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend1-text" value="客户端组件" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontColor=#202124;" parent="1" vertex="1">
+                    <mxGeometry x="80" y="512" width="80" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend2" value="" style="rounded=0;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;strokeWidth=1;fillColor=#DADCE0;strokeColor=#5F6368;" parent="1" vertex="1">
+                    <mxGeometry x="170" y="515" width="20" height="15" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend2-text" value="服务端组件" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontColor=#202124;" parent="1" vertex="1">
+                    <mxGeometry x="195" y="512" width="80" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend3" value="" style="rounded=0;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;strokeWidth=1;fillColor=#A8DAB5;strokeColor=#188038;" parent="1" vertex="1">
+                    <mxGeometry x="55" y="545" width="20" height="15" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend3-text" value="SDK 组件" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontColor=#202124;" parent="1" vertex="1">
+                    <mxGeometry x="80" y="542" width="80" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend4" value="" style="rounded=0;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;strokeWidth=1;fillColor=#FEEFC3;strokeColor=#E37400;" parent="1" vertex="1">
+                    <mxGeometry x="170" y="545" width="20" height="15" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend4-text" value="存储" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontColor=#202124;" parent="1" vertex="1">
+                    <mxGeometry x="195" y="542" width="80" height="20" as="geometry"/>
+                </mxCell>
+
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

@@ -1,0 +1,14 @@
+# ============================================
+# .dockerignore - 排除不需要打包的文件
+# ============================================
+
+node_modules
+dist
+.git
+.gitignore
+*.md
+.env
+.env.local
+.DS_Store
+client/node_modules
+*.log
