@@ -184,38 +184,59 @@ if (process.env.NODE_ENV !== "production") {
 // REST API - Chat (需要登录)
 // ==========================================
 
+// Chat API: 优先数据库，无数据库降级到内存
+const hasDB = () => !!process.env.DATABASE_URL;
+
 app.get("/api/chats", authMiddleware, async (req: AuthRequest, res) => {
   try {
-    const chats = await chatRepo.getAllChats(req.userId!);
-    res.json(chats);
+    if (hasDB()) {
+      const chats = await chatRepo.getAllChats(req.userId!);
+      return res.json(chats);
+    }
+    // 内存 fallback
+    res.json(chatStore.getAllChats());
   } catch (err: any) {
-    res.status(500).json({ error: err.message });
+    // 降级到内存
+    res.json(chatStore.getAllChats());
   }
 });
 
 app.post("/api/chats", authMiddleware, async (req: AuthRequest, res) => {
   try {
-    const chat = await chatRepo.createChat(req.userId!, req.body?.title);
+    if (hasDB()) {
+      const chat = await chatRepo.createChat(req.userId!, req.body?.title);
+      return res.status(201).json(chat);
+    }
+    const chat = chatStore.createChat(req.body?.title);
     res.status(201).json(chat);
   } catch (err: any) {
-    res.status(500).json({ error: err.message });
+    const chat = chatStore.createChat(req.body?.title);
+    res.status(201).json(chat);
   }
 });
 
 app.get("/api/chats/:id", authMiddleware, async (req: AuthRequest, res) => {
   try {
-    const chat = await chatRepo.getChat(req.params.id);
+    if (hasDB()) {
+      const chat = await chatRepo.getChat(req.params.id);
+      if (chat) return res.json(chat);
+    }
+    const chat = chatStore.getChat(req.params.id);
     if (!chat) return res.status(404).json({ error: "Chat not found" });
     res.json(chat);
   } catch (err: any) {
-    res.status(500).json({ error: err.message });
+    const chat = chatStore.getChat(req.params.id);
+    if (!chat) return res.status(404).json({ error: "Chat not found" });
+    res.json(chat);
   }
 });
 
 app.delete("/api/chats/:id", authMiddleware, async (req: AuthRequest, res) => {
   try {
-    const deleted = await chatRepo.deleteChat(req.params.id);
-    if (!deleted) return res.status(404).json({ error: "Chat not found" });
+    if (hasDB()) {
+      await chatRepo.deleteChat(req.params.id);
+    }
+    chatStore.deleteChat(req.params.id);
     const session = sessions.get(req.params.id);
     if (session) {
       session.close();
@@ -223,16 +244,20 @@ app.delete("/api/chats/:id", authMiddleware, async (req: AuthRequest, res) => {
     }
     res.json({ success: true });
   } catch (err: any) {
-    res.status(500).json({ error: err.message });
+    chatStore.deleteChat(req.params.id);
+    res.json({ success: true });
   }
 });
 
 app.get("/api/chats/:id/messages", authMiddleware, async (req: AuthRequest, res) => {
   try {
-    const messages = await chatRepo.getMessages(req.params.id);
-    res.json(messages);
+    if (hasDB()) {
+      const messages = await chatRepo.getMessages(req.params.id);
+      return res.json(messages);
+    }
+    res.json(chatStore.getMessages(req.params.id));
   } catch (err: any) {
-    res.status(500).json({ error: err.message });
+    res.json(chatStore.getMessages(req.params.id));
   }
 });
 

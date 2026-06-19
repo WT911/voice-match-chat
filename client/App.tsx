@@ -7,7 +7,7 @@ import { LoginPage } from "./components/LoginPage";
 import { useChats } from "./hooks/useChats";
 import { useMessages } from "./hooks/useMessages";
 
-const WS_URL = `ws://${window.location.host}/ws`;
+const WS_URL = `${window.location.protocol === "https:" ? "wss:" : "ws:"}//${window.location.host}/ws`;
 
 type TabKey = "chat" | "voice" | "profile";
 
